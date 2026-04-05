@@ -1,0 +1,88 @@
+.custom-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 6px 20px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+
+    background-color: var(--pill-background);
+    color: var(--pill-border);
+
+    &:hover {
+        transform: scale(1.02);
+        filter: brightness(1.05);
+        background-color: var(--pill-background);
+        box-shadow: var(--pill-shadow);
+    }
+
+    &.variant-primary {
+        background-color: var(--amber-bright);
+        color: white;
+        border: none;
+    }
+
+    &.variant-accent {
+        background-color: var(--warm-blue);
+        color: white;
+        border: none;
+    }
+
+    // tipos de botón
+    &.icon-button {
+        padding: 8px;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+    }
+
+    .material-symbols-rounded {
+        font-size: 20px;
+        display: block;
+    }
+
+    &.full {
+        display: block;
+        width: 100%;
+        width: -moz-available;
+    }
+    &.right {
+        display: flex;
+        width: 100%;
+        justify-content:flex-end;
+    }
+
+    // tamaño md (md) solo para botones con texto
+    &.size-md {
+        height: 44px;
+        .material-symbols-rounded {
+            font-size: 24px;
+        }
+        &:hover {
+            transform: scale(1.005);
+        }
+    }
+
+    // tamaño grande (lg) solo para botones redondos 
+    &.size-lg {
+        width: 50px;
+        height: 50px;
+        .material-symbols-rounded {
+            font-size: 30px;
+        }
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    &.pulse{
+        transition: all 0.3s ease;
+        &:hover {
+        animation: pulse 1.5s ease-in-out infinite;
+        
+        }
+    }
+
+}
