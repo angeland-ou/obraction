@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { register } from '../api/auth';
+import Input from '../components/Input';
+import Button from '../components/Button';
 
 const RegisterPage = () => {
     const [formData, setFormData] = useState({
@@ -44,13 +46,59 @@ const RegisterPage = () => {
             <h2>Crea tu cuenta en Obraction</h2>
             {error && <p style={{ color: 'red' }}>{error}</p>}
             
-            <input name="username" placeholder="Tu nombre" onChange={handleChange} />
-            <input name="nif" placeholder="Nif" onChange={handleChange} />
-            <input name="tenantName" placeholder="Nombre de la empresa" onChange={handleChange} />
-            <input name="email" type="email" placeholder="Email" onChange={handleChange} />
-            <input name="password" type="password" placeholder="Password" onChange={handleChange} />
+            <Input 
+                name="username"
+                label="username"
+                icon="person"
+                type="text"
+                placeholder="Nombre de usuario"
+                onChange={handleChange}
+            />
 
-            <button type="submit">Registrar empresa</button>
+            <Input 
+                name="nif"
+                label="nif"
+                icon="id_card"
+                type="text"
+                placeholder="NIF / CIF"
+                onChange={handleChange}
+            />
+
+            <Input 
+                name="tenantName"
+                label="nombre de la empresa"
+                icon="home_work"
+                type="text"
+                placeholder="Nombre de la empresa"
+                onChange={handleChange}
+            />
+
+            <Input 
+                name="email"
+                label="email"
+                icon="mail"
+                type="email"
+                placeholder="Correo electrónico"
+                onChange={handleChange}
+            />
+
+            <Input 
+                name="password"
+                label="password"
+                icon="lock"
+                type="password"
+                placeholder="Contraseña"
+                onChange={handleChange}
+            />
+            
+            <Button
+                size = "md"
+                className="right"
+                type="submit"
+                layout="icon-text-button"
+                icon="login"
+                label="Registrarse"
+                />
         </form>
     );
 };
