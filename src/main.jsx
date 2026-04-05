@@ -15,6 +15,7 @@ import Dashboard from './pages/Dashboard.jsx';
 import Projects from './pages/Projects.jsx';
 
 import ProjectDetail from './pages/ProjectDetail.jsx';
+import ActivationPage from './pages/Activation.jsx';
 
 import './styles/main.scss';
 
@@ -41,6 +42,9 @@ createRoot(document.getElementById('root')).render(
                 <ProjectDetail />
               </ProtectedRoute>} />
             <Route path="*" element={<NotFound />} />
+            <Route path="/activate/:token" element={
+                <ActivationPage />
+                } />
           </Route>
         </Routes>
       </BrowserRouter>
