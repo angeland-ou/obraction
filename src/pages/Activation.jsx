@@ -1,11 +1,12 @@
-import { useEffect, useState, useRef } from 'react'; 
+import { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { activateAccount } from '../api/auth';
 
 const ActivationPage = () => {
     const { token } = useParams();
     const [status, setStatus] = useState('loading');
     const navigate = useNavigate();
-    
+
     const activationStarted = useRef(false);
 
     useEffect(() => {
@@ -14,16 +15,10 @@ const ActivationPage = () => {
 
         const triggerActivation = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/api/auth/activate/${token}`);
-                const data = await response.json();
-
-                if (response.ok) {
-                    setStatus('success');
-                    setTimeout(() => navigate('/login'), 3000);
-                } else {
-                    setStatus('error');
-                    console.error("Error del backend:", data.error);
-                }
+                await activateAccount(token);
+                setStatus('success');
+                // redirigimos a login - pendiente hacer página con info de que revisen el email
+                setTimeout(() => navigate('/login'), 3000);
             } catch (err) {
                 console.error('Error en la activación', err.message)
                 setStatus('error');
@@ -37,7 +32,7 @@ const ActivationPage = () => {
         <div className="activation-layout">
             {status === 'loading' && <p>Verificando credenciales en Obraction...</p>}
             {status === 'success' && <p>¡Cuenta confirmada!...</p>}
-            {status === 'error' && <p>Token inválido o expirado. Contacta con soporte.</p>}
+            {status === 'error' && <p>Ha ocurrido un error. Contacta con soporte.</p>}
         </div>
     );
 };
