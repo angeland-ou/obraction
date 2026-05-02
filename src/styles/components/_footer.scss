@@ -1,0 +1,14 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+        padding: 1.8rem;
+        ;
+    }
+}

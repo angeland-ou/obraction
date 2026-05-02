@@ -1,54 +1,29 @@
-// UI
-@use 'variables';
-@use 'variables' as v;
+// Variables
+@use "variables";
+
+// Fonts
+@use "fonts";
+
+// Animations
+@use "./animations";
+
+// Base
+@use "./base";
 
 // Components
 
-@use './animations';
-@use './components/_button';
-@use './components/_card';
-@use './components/input';
-@use './components/_nav';
-@use './components/_header';
-@use './components/_footer';
+@use "./components/header";
+@use "./components/footer";
 
+@use "./components/landing";
+@use "./components/nav";
+@use "./components/forms";
+@use "./components/card";
+@use "./components/modal";
+@use "./components/button";
+@use "./components/input";
 
-// Base
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
-:root {
-
-    a, .link {
-    cursor: pointer;
-    text-decoration: none;
-    color: var(--warm-blue);
-}
-
-    ul {
-        padding: 0;
-
-        li {
-            list-style: none;
-        }
-    }
-}
-
-main {
-    padding-top: 80px;
-
-    padding-bottom: 120px;
-
-    padding-left: 15px;
-    padding-right: 15px;
-
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
-    transition: padding 0.3s ease;
-}
+@use "./components/client";
+@use "./components/movements";
+@use "./components/projects";
+@use "./components/tenant";

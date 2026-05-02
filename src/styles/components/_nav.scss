@@ -1,33 +1,65 @@
-.mobile-nav-container {
+.nav-container {
     .corner {
         position: fixed;
         z-index: 1000;
-        
-        &.top-left { top: 20px; left: 20px; }
-        &.top-right { top: 20px; right: 20px; }
-        &.bottom-right { 
-            bottom: 20px; 
-            right: 20px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: flex-end; 
+
+        &.top-left {
+            top: 20px;
+            left: 20px;
+        }
+
+        &.top-right {
+            top: 20px;
+            right: 20px;
+
+            & .variant-ghost {
+                background-color: #00000014;
+                border-color: #8f8f8f;
+                color: #8f8f8f;
+            }
+        }
+
+        &.bottom-right {
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
             gap: 12px;
         }
+
+        &.bottom-left {
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+
+            & .logo-img {
+                max-width: 150px;
+                height: auto;
+            }
+        }
     }
+
     .main-fabs {
         display: flex;
         gap: 12px;
     }
+
     .fab-menu {
         display: block;
-        background: var(--card);
+        background: var(--bg-card);
         padding: 20px;
         border-radius: 12px;
         box-shadow: var(--card-shadow);
         border: 1px solid var(--border);
         animation: slideIn 0.2s ease-out;
 
-        &.actions { bottom: 90px; } 
+        &.actions {
+            bottom: 90px;
+        }
     }
 
     .bottom-menu {
@@ -36,14 +68,64 @@
         margin: 0px 20px;
         z-index: 9999;
         bottom: 80px;
-        .desplegable{
-            width: 100%;
+        width: calc(100% - 40px);
+
+        .desplegable {
+            float: right;
             z-index: 999999;
-            .actions, .navigation {
+            min-width: 250px;
+
+            .actions,
+            .navigation {
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
             }
         }
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        margin: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    }
+}
+
+@media (max-width: 768px) and (hover: none) and (pointer: coarse) {
+    main {
+        margin: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    }
+
+    .nav-container {
+        .corner {
+            &.top-left {
+                top: calc(20px + env(safe-area-inset-top));
+                left: calc(20px + env(safe-area-inset-left));
+            }
+
+            &.top-right {
+                top: calc(20px + env(safe-area-inset-top));
+                right: calc(20px + env(safe-area-inset-right));
+            }
+
+            &.bottom-right {
+                bottom: calc(20px + env(safe-area-inset-bottom));
+                right: calc(20px + env(safe-area-inset-right));
+            }
+
+            &.bottom-left {
+                bottom: calc(20px + env(safe-area-inset-bottom));
+                left: calc(20px + env(safe-area-inset-right));
+            }
+        }
+    }
+
+    .fab-menu {
+        padding-bottom: calc(20px + env(safe-area-inset-bottom));
+    }
+
+    .bottom-menu {
+        margin: 0 20px;
+        padding-bottom: env(safe-area-inset-bottom);
     }
 }

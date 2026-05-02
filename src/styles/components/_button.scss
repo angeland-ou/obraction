@@ -8,36 +8,61 @@
     border: 1px solid var(--border);
     cursor: pointer;
     transition: all 0.2s ease;
-    font-family: inherit;
 
-    background-color: var(--pill-background);
+    background-color: var(--btn-primary-bg);
     color: var(--pill-border);
 
     &:hover {
         transform: scale(1.02);
         filter: brightness(1.05);
-        background-color: var(--pill-background);
-        box-shadow: var(--pill-shadow);
+        background-color: var(--btn-primary-hover);
+        box-shadow: var(--btn-shadow);
+    }
+
+    &.trash {
+        max-height: 44px;
     }
 
     &.variant-primary {
-        background-color: var(--amber-bright);
-        color: white;
+        background-color: var(--btn-primary-bg);
+        color: var(--btn-primary-text);
         border: none;
     }
 
     &.variant-accent {
-        background-color: var(--warm-blue);
-        color: white;
+        background-color: var(--btn-accent-bg);
+        color: var(--btn-accent-text);
+        border: none;
+    }
+
+    &.variant-neutral {
+        background-color: var(--neutral);
+        color: var(--btn-primary-text);
+        border: none;
+    }
+
+    &.variant-ghost {
+        background-color: var(--btn-ghost-bg);
+        color: var(--btn-ghost-text);
+        border: var(--btn-ghost-border);
+    }
+
+    &.variant-danger {
+        background-color: var(--btn-danger-bg);
+        color: var(--btn-danger-text);
+        border: none;
+    }
+
+    &.variant-success {
+        background-color: var(--color-success);
+        color: var(--btn-primary-text);
         border: none;
     }
 
     // tipos de botón
     &.icon-button {
-        padding: 8px;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
+        padding: 6px;
+        border-radius: 100px;
     }
 
     .material-symbols-rounded {
@@ -49,40 +74,136 @@
         display: block;
         width: 100%;
         width: -moz-available;
+        width: -webkit-fill-available;
     }
+
     &.right {
         display: flex;
         width: 100%;
-        justify-content:flex-end;
+        justify-content: flex-end;
     }
 
-    // tamaño md (md) solo para botones con texto
+    &.size-xs {
+        padding: 6px 10px;
+        height: 20px;
+
+        .material-symbols-rounded {
+            font-size: 0.8em;
+        }
+
+        &:hover {
+            transform: scale(0.96);
+        }
+    }
+
+    &.size-circle-xs {
+        min-width: 20px;
+        min-height: 20px;
+
+        .material-symbols-rounded {
+            font-size: 0.8em;
+        }
+
+        &:hover {
+            transform: scale(0.96);
+        }
+    }
+
+    &.size-sm {
+        height: 30px;
+
+        .material-symbols-rounded {
+            font-size: 1.2em;
+        }
+
+        &:hover {
+            transform: scale(0.96);
+        }
+    }
+
+    &.size-circle-sm {
+        min-width: 30px;
+        min-height: 30px;
+
+        .material-symbols-rounded {
+            font-size: 1.2em;
+        }
+
+        &:hover {
+            transform: scale(0.96);
+        }
+    }
+
     &.size-md {
         height: 44px;
+
         .material-symbols-rounded {
-            font-size: 24px;
+            font-size: 1.5em;
         }
+
         &:hover {
             transform: scale(1.005);
         }
     }
 
-    // tamaño grande (lg) solo para botones redondos 
-    &.size-lg {
-        width: 50px;
-        height: 50px;
+    &.size-circle-md {
+        min-width: 44px;
+        min-height: 44px;
+
         .material-symbols-rounded {
-            font-size: 30px;
+            font-size: 1.5em;
         }
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    }
 
-    &.pulse{
-        transition: all 0.3s ease;
         &:hover {
-        animation: pulse 1.5s ease-in-out infinite;
-        
+            transform: scale(1.005);
         }
     }
 
+    &.size-lg {
+        height: 50px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+
+        .material-symbols-rounded {
+            font-size: 2.2em;
+        }
+
+        span.button-label {
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+    }
+
+    &.size-circle-lg {
+        min-width: 50px;
+        min-height: 50px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+
+        .material-symbols-rounded {
+            font-size: 2.2em;
+        }
+
+        span.button-label {
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+    }
+
+    .button-info {
+        font-size: 0.8rem;
+        font-style: italic;
+    }
+
+    &.pulse {
+        transition: all 0.3s ease;
+
+        &:hover {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+    }
+}
+
+.block-row {
+    button {
+        width: 100%;
+    }
 }

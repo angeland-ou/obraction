@@ -1,0 +1,22 @@
+.form-actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5em;
+}
+
+.custom-input {
+    &.custom-textarea {
+        font-family: inherit;
+        min-height: 80px;
+        padding-top: 0.7em;
+    }
+}
+
+.attached-file {
+    padding-bottom: 16px;
+}
+
+.form-empty-hint {
+    color: var(--color-neutral);
+    font-size: 0.8em;
+}

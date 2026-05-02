@@ -1,16 +1,192 @@
 .card {
-    background-color: var(--card);
-    border-radius: 12px;
-    padding: 20px;
-    
-    box-shadow: var(--card-shadow);
-    
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.875rem 1rem;
+    background: var(--bg-card);
     border: 1px solid var(--border);
-    
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 10px;
+    box-shadow: none;
+    transition:
+        box-shadow 0.15s ease,
+        border-color 0.15s ease;
 
-    &:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    .block-row & {
+        width: 100%;
+    }
+
+    &.project .card-value {
+        color: var(--text-primary);
+        font-size: 1.1em;
+    }
+
+    &.base-amount .card-value {
+        color: var(--text-primary);
+        font-weight: 700;
+    }
+
+    &.iva-amount .card-value {
+        color: var(--text-primary);
+        font-weight: 700;
+    }
+
+    &-clickable {
+        cursor: pointer;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--card-shadow);
+        }
+
+        &:hover {
+            border-color: var(--primary);
+        }
+    }
+
+    &-status {
+        &-success {
+            border-left: 3px solid var(--color-success);
+        }
+
+        &-warning {
+            border-left: 3px solid var(--color-warning);
+        }
+
+        &-danger {
+            border-left: 3px solid var(--color-danger);
+        }
+
+        &-neutral {
+            border-left: 3px solid var(--color-neutral);
+        }
+    }
+
+    &-globe {
+        position: absolute;
+        top: 5px;
+        right: -8px;
+        font-size: 0.65em;
+        border-radius: 100px;
+        height: 15px;
+        width: 15px;
+        text-align: center;
+        padding-top: 1px;
+    }
+
+    &-badge {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 50%;
+        flex-shrink: 0;
+
+        &-icon {
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+    }
+
+    &-body {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+        flex: 1;
+        min-width: 0;
+
+        &-right {
+            display: flex;
+            flex-direction: column;
+
+            &-details {
+                display: flex;
+                flex-direction: column;
+                gap: 0px;
+            }
+        }
+    }
+
+    &-title {
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--text-primary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &-subtitle {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &-value {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--text-muted);
+        flex-shrink: 0;
+        text-align: right;
+    }
+
+    &-income {
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: var(--color-success);
+        flex-shrink: 0;
+        text-align: right;
+    }
+
+    &-expense {
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: var(--color-danger);
+        flex-shrink: 0;
+        text-align: right;
+    }
+
+    &-iva {
+        font-size: 0.7rem;
+        font-weight: 400;
+        color: var(--text-muted);
+        flex-shrink: 0;
+        text-align: right;
+    }
+
+    &-centered-vertical {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    &-balance {
+        .card-value {
+            color: var(--text-primary);
+            font-size: 2.25rem;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .card-iva {
+            text-align: center;
+            padding-top: 10px;
+
+            &::before {
+                content: "Balance total IVA calculado: ";
+            }
+
+            &::after {
+                content: " €";
+            }
+        }
+    }
+
+    &.muted {
+        background-color: transparent;
+        border: none;
     }
 }

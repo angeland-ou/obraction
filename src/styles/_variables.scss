@@ -1,162 +1,126 @@
+:root {
+    --dark: #20170c;
+    --light: #fafbff;
 
-/* =============================================================================
-   Fonts & Icons
-   ============================================================================= */
+    --bg-landing: linear-gradient(
+        16deg,
+        rgba(235, 235, 235, 1) 36%,
+        rgba(37, 99, 235, 1) 76%
+    );
+    --bg-landing-mobile: linear-gradient(
+        25deg,
+        rgba(235, 235, 235, 1) 56%,
+        rgba(37, 99, 235, 1) 86%
+    );
+    --bg-landing-badge: rgba(255, 255, 255, 0.5);
+    // linear-gradient(16deg,#fafbff 61%, #2563eb 100%);
 
-    @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+    // Fixed colors - don't change with theme
+    --primary: #2563eb;
+    --neutral: #6a6a69;
+    --soft: #b19595;
+    --white: #ffffff;
+    --almost-white: #f1f5f9;
 
-/* =============================================================================
-   Color Palette
-   ============================================================================= */
+    // Backgrounds
+    --bg-app: var(--light);
+    --bg-card: var(--white);
 
-$dark-blue: #152f50;
-$medium-blue: #0a559b;
-$almost-black: #131313;
+    // Borders
+    --border: rgba(0, 0, 0, 0.08);
+    --border-radius: 0.75rem;
 
-$dark-brown: #242221;
-$medium-brown: #242424;
-$light-brown: #95908E;
-$bright-amber: #ffab0f;
-$bright-orange: #F26419;
-$light-off-white: #F0EEEE;
-$light-gray: #f6f2f2;
+    // Texts
 
-$positive-green: #10B981;
+    --text-primary: var(--dark);
+    --text-secondary: var(--neutral);
+    --text-inverse: #f5f2f2;
+    --text-muted: #6b7280;
 
-/* =============================================================================
-   Light Mode
-   ============================================================================= */
+    // Semantic
+    --color-success: #22c55e; // ingresos
+    --color-danger: #dc2626; // gastos o errores
+    --color-warning: #f59e0b;
+    --color-neutral: var(--neutral);
 
-$light-mode: (
-  text: $almost-black,
-  background: $light-off-white,
-  foreground: $almost-black,
-  card: $light-gray,
-  card-foreground: $almost-black,
-  card-shadow: (0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)),
+    // Buttons
+    --btn-primary-bg: var(--primary);
+    --btn-primary-hover: #1d4ed8;
+    --btn-primary-text: var(--white);
 
-  /* Custom colors */
-  amber-bright: $bright-amber,
-  warm-blue: $medium-blue,
-  positive: $positive-green,
-  negative: $bright-orange,
+    --btn-accent-bg: #ffab0f;
+    --btn-accent-hover: #d18c0d;
+    --btn-accent-text: var(--white);
 
-  /* Pills */
-  pill-bg: #ffffff,
-  pill-border: $light-gray,
-  pill-shadow: (0 5px 10px 0px rgba(0, 0, 0, 0.1), 0 3px 4px 0px rgba(0, 0, 0, 0.05)),
+    --btn-ghost-bg: transparent;
+    --btn-ghost-hover: rgba(0, 0, 0, 0.05);
+    --btn-ghost-text: var(--neutral);
+    --btn-ghost-border: 1px solid var(--neutral);
 
+    --btn-danger-bg: #dc2626;
+    --btn-danger-hover: #b91c1c;
+    --btn-danger-text: var(--white);
 
-  /* Status indicators */
-  status-pending: $light-brown,
-  status-in-progress: $medium-blue,
-  status-paused: $bright-amber,
-  status-completed: $positive-green,
+    // Shadows
+    --btn-shadow:
+        0 5px 10px 0px rgba(0, 0, 0, 0.1), 0 3px 4px 0px rgba(0, 0, 0, 0.05);
+    --card-shadow:
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.03);
+    --modal-shadow:
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.03);
 
-  task-status-pending: $light-brown,
-  task-status-done: $positive-green,
-
-  /* Borders */
-  border: rgba(0, 0, 0, 0.1),
-);
-
-/* =============================================================================
-   Dark Mode
-   ============================================================================= */
-
-$dark-mode: (
-  text: $light-off-white,
-  background: $almost-black,
-  foreground: $light-off-white,
-  card: $dark-brown,
-  card-foreground: $light-off-white,
-  card-shadow: (0 10px 20px rgba(0, 0, 0, 0.4)),
-
-  /* custom colors */
-  amber-bright: $bright-amber,
-  warm-blue: $medium-blue,
-  positive: $positive-green,
-  negative: $bright-orange,
-
-  /* pills */
-  pill-bg: $dark-brown,
-  pill-border: $medium-brown,
-  pill-shadow: (0 5px 10px 0px rgba(255, 242, 242, 0.1), 0 3px 4px 0px rgba(255, 255, 255, 0.05)),
-
-  /* status */
-  status-pending: $light-brown,
-  status-in-progress: $medium-blue,
-  status-paused: $bright-amber,
-  status-completed: $positive-green,
-
-  task-status-pending: $light-brown,
-  task-status-done: $positive-green,
-
-  /* borders */
-  border: $medium-brown,
-);
-
-/* =============================================================================
-   Spacing, layout
-   ============================================================================= */
-
-$spacing: (
-  xs: 4px,
-  sm: 8px,
-  md: 16px,
-  lg: 24px,
-  xl: 32px,
-  2xl: 48px,
-);
-
-$icon-size: 48px;
-$icon-small: 32px;
-$pill-height: 48px;
-$pill-border-radius: 24px;
-$badge-size: 12px;
-
-/* =============================================================================
-   Typo
-   ============================================================================= */
-
-$font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-$font-weight-normal: 400;
-$font-weight-medium: 500;
-$font-weight-semibold: 600;
-$font-weight-bold: 700;
-
-$font-sizes: (
-  xs: 0.75rem,    // 12px
-  sm: 0.8125rem,  // 13px
-  base: 0.875rem, // 14px
-  md: 1rem,       // 16px
-  lg: 1.125rem,   // 18px
-  xl: 1.5rem,     // 24px
-  2xl: 2rem,      // 32px
-  3xl: 3rem,      // 48px
-);
-
-/* =============================================================================
-   Mixins & color theme
-   ============================================================================= */
-
-@mixin inject-themes($map) {
-  @each $key, $value in $map {
-    --#{$key}: #{$value};
-  }
+    // Fonts
+    --font-family:
+        "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
 }
 
-body {
-  &.light {
-    @include inject-themes($light-mode);
-  }
-  &.dark {
-    @include inject-themes($dark-mode);
-  }
-  transition: background-color 0.3s ease, color 0.3s ease;
-  background-color: var(--background);
-  color: var(--text);
-  font-family: $font-family;
+// Dark theme
+[data-theme="dark"] {
+    --dark: #fafbff;
+    --light: #20170c;
+
+    --bg-landing: linear-gradient(16deg, #0b0b0c 61%, #2563eb 100%);
+    --bg-landing-mobile: linear-gradient(
+        25deg,
+        #0b0b0c 56%,
+        rgba(37, 99, 235, 1) 86%
+    );
+    --bg-landing-badge: rgba(0, 0, 0, 0.5);
+
+    // Backgrounds
+    --bg-app: #0f172a;
+    --bg-card: #1e293b;
+    --bg-card-hover: #263248;
+    --border: rgba(255, 255, 255, 0.08);
+
+    // Texts
+    --text-primary: var(--almost-white);
+    --text-secondary: #94a3b8;
+    --text-inverse: var(--white);
+
+    --btn-accent-bg: #ffb11f;
+    --btn-accent-hover: #df960e;
+    --btn-accent-text: var(--white);
+
+    --btn-ghost-bg: transparent;
+    --btn-ghost-hover: rgba(255, 255, 255, 0.06);
+    --btn-ghost-text: #94a3b8;
+
+    --btn-danger-bg: #dc2626;
+    --btn-danger-hover: #b91c1c;
+    --btn-danger-text: var(--white);
+
+    // Shadows
+    --btn-shadow:
+        0 5px 10px 0px rgba(0, 0, 0, 0.3), 0 3px 4px 0px rgba(0, 0, 0, 0.15);
+    --card-shadow:
+        0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+    --modal-shadow:
+        0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
 }
