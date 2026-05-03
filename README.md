@@ -28,8 +28,8 @@ Interfaz web para la gestión integral de obras y proyectos de construcción. Fr
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/obraction-app.git
-cd obraction-app
+git clone https://github.com/angeland-ou/obraction.git
+cd obraction
 ```
 
 ### 2. Instalar dependencias
@@ -196,12 +196,12 @@ VITE_API_URL=https://api.obraction.com
 
 ### 3. Configurar dominio personalizado
 
-En **Settings → Domains** añade `app.obraction.com`.
+En **Settings → Domains** añade `api.obraction.com`.
 
 En Cloudflare añade el registro DNS:
 
 ```
-app.obraction.com → CNAME → cname.vercel-dns.com
+api.obraction.com → CNAME → cname.vercel-dns.com
 ```
 
 ---
