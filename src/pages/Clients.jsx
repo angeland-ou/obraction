@@ -109,7 +109,6 @@ const ClientsPage = () => {
                     filtered.map(client => {
                         const config = getStatusConfig(client.status);
                         const fullName = [client.name, client.surname].filter(Boolean).join(' ');
-                        console.log(client.phones);
                         return (
 
                             <Card

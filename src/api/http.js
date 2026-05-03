@@ -27,7 +27,7 @@ const request = async (method, endpoint, data = null, hasRefreshed = false) => {
 
         // refresh ok
         if (refreshRes.ok) {
-            console.log("Token refrescado con éxito, reintentando petición...");
+            console.error("Token refrescado con éxito, reintentando petición...");
             return request(method, endpoint, data, true); // reintento
         } else {
             console.error("Refresh token inválido. Forzando logout.");
@@ -44,9 +44,6 @@ const request = async (method, endpoint, data = null, hasRefreshed = false) => {
         throw new Error("Respuesta inesperada del servidor");
     }
 
-    console.log("response.ok:", response.ok);
-    console.log("response.status:", response.status);
-    console.log("result:", result);
 
     if (!response.ok) {
         const error = new Error(
@@ -55,7 +52,6 @@ const request = async (method, endpoint, data = null, hasRefreshed = false) => {
         error.status = response.status;
         error.data = result;
 
-        console.log("error.data:", error.data);
 
         throw error;
     }

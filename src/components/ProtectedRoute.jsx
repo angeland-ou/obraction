@@ -3,7 +3,6 @@ import { Navigate } from 'react-router-dom';
 
 const ProtectedRoute = ({ children }) => {
     const { user, loading } = useAuth();
-    console.log("Estado de Auth:", { user, loading });
 
     // mostramos carga mientras responde servidor
     if (loading) {

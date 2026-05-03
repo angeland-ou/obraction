@@ -36,10 +36,6 @@ const LoginPage = () => {
             navigate('/dashboard');
         } catch (err) {
 
-            // console.log("Status:", err.status);
-            // console.log("Data:", err.data?.error);
-            // console.log("Details:", err.data);
-
             if (err.status === 400 && err.data?.error?.details) {
                 const errors = {};
                 err.data.error.details.forEach(({ path, message }) => {

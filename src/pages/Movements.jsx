@@ -25,7 +25,6 @@ const MovementsPage = () => {
             try {
                 const response = await getAllMovements(projectId);
                 setMovements(response.data || []);
-                console.log('primer movimiento:', response.data?.[0]);
             } catch (err) {
                 setError(err.data?.error?.message || err.message || 'Error al cargar los movimientos');
             } finally {
