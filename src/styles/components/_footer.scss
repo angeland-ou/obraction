@@ -12,6 +12,11 @@
         color: var(--text-primary);
     }
 
+    .modal-header,
+    .modal-body {
+        color: var(--text-primary);
+    }
+
     @media (max-width: 768px) {
         ul {
             flex-wrap: wrap;
