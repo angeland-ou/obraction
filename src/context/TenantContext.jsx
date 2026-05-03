@@ -1,9 +1,12 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { getTenant } from '../api/tenant';
+import { AuthContext } from './AuthContext';
 
 const TenantContext = createContext();
 
 export const TenantProvider = ({ children }) => {
+    const { user } = useContext(AuthContext);
+
     const [tenantLogo, setTenantLogo] = useState(() => {
         return localStorage.getItem('tenantLogo') || null;
     });
@@ -18,11 +21,11 @@ export const TenantProvider = ({ children }) => {
                 const response = await getTenant();
                 const t = response.data;
 
-                if (t.logoUrl) {
+                if (t?.logoUrl) {
                     setTenantLogo(t.logoUrl);
                     localStorage.setItem('tenantLogo', t.logoUrl);
                 }
-                if (t.primaryColor) {
+                if (t?.primaryColor) {
                     setTenantColor(t.primaryColor);
                     localStorage.setItem('tenantColor', t.primaryColor);
                     document.documentElement.style.setProperty('--primary', t.primaryColor);
@@ -32,8 +35,17 @@ export const TenantProvider = ({ children }) => {
             }
         };
 
-        fetchTenantBranding();
-    }, []);
+        if (user) {
+            fetchTenantBranding();
+        } else {
+            // limpiamos branding al cerrar sesión
+            setTenantLogo(null);
+            setTenantColor(null);
+            localStorage.removeItem('tenantLogo');
+            localStorage.removeItem('tenantColor');
+        }
+
+    }, [user]);
 
     const updateLogo = (url) => {
         setTenantLogo(url);
