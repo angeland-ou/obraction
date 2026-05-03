@@ -4,6 +4,8 @@ import { useAuth } from '../hooks/useAuth';
 import Card from '../components/Card';
 import Button from '../components/Button';
 import BalanceCard from '../components/BalanceCard';
+import { getRequest } from '../api/http';
+
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -21,14 +23,7 @@ const Dashboard = () => {
             try {
                 setDataLoading(true);
 
-                const response = await fetch(`/api/tenant/balance`, {
-                    method: 'GET',
-                    headers: { 'Content-Type': 'application/json' }
-                });
-
-                if (!response.ok) throw new Error('Error al cargar métricas');
-
-                const result = await response.json();
+                const result = await getRequest('/tenant/balance');
 
                 setMetrics(result.data);
 
