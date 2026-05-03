@@ -1,4 +1,4 @@
-export const BASE_URL = '/api';
+export const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 // peticiones
 const request = async (method, endpoint, data = null, hasRefreshed = false) => {
@@ -16,7 +16,7 @@ const request = async (method, endpoint, data = null, hasRefreshed = false) => {
     const response = await fetch(`${BASE_URL}${endpoint}`, config);
 
     // response 401 + no es intento de refresh
-    if (response.status === 401 && !endpoint.includes('/auth/refresh')  && !hasRefreshed) {
+    if (response.status === 401 && !endpoint.includes('/auth/refresh') && !hasRefreshed) {
         console.warn("Access token expirado, intentando refrescar...");
 
         // intentamos refresh
